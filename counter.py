@@ -53,9 +53,9 @@ entry_frame = tk.Frame(window)
 entry_frame.pack(pady=10)
 
 entry = tk.Entry(entry_frame, font=("Arial", 15), width=10)
-entry.pack(side=tk.LEFT, padx=5)
+entry.pack(side=tk.LEFT, padx=10)
 
 set_button = tk.Button(entry_frame, text="Set Value", font=("Arial", 15), command=set_custom)
-set_button.pack(side=tk.LEFT, padx=5)
+set_button.pack(side=tk.LEFT, padx=10)
 
 window.mainloop()

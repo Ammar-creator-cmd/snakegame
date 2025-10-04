@@ -104,13 +104,13 @@ gender_frame = tk.Frame(root, bg="lightblue")
 gender_frame.grid(row=9, column=1, padx=10, pady=10, sticky=tk.W, columnspan=3)
 
 male_radiobutton = ttk.Radiobutton(gender_frame, text="Male", value="Male", variable=gender_var)
-male_radiobutton.pack(side=tk.LEFT, padx=5)
+male_radiobutton.pack(side=tk.LEFT, padx=10)
 
 female_radiobutton = ttk.Radiobutton(gender_frame, text="Female", value="Female", variable=gender_var)
-female_radiobutton.pack(side=tk.LEFT, padx=5)
+female_radiobutton.pack(side=tk.LEFT, padx=10)
 
 other_radiobutton = ttk.Radiobutton(gender_frame, text="Other", value="Other", variable=gender_var)
-other_radiobutton.pack(side=tk.LEFT, padx=5)
+other_radiobutton.pack(side=tk.LEFT, padx=10)
 
 #country combobox
 country_var = tk.StringVar()
