@@ -63,6 +63,23 @@ class Food:
 def distance(point1, point2):
     return math.sqrt((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2)
 
+#special food, buff = 2 times growth
+class SpecialFood:
+    def __init__(self):
+        self.position = (random.randint(10, WIDTH - 10), random.randint(10, HEIGHT - 10))
+        self.spawn_time = time()
+        self.duration = 5  # seconds
+
+    def respawn(self):
+        self.position = (random.randint(10, WIDTH - 10), random.randint(10, HEIGHT - 10))
+        self.spawn_time = time()
+
+    def get_position(self):
+        return self.position
+
+    def is_active(self):
+        return (time() - self.spawn_time) < self.duration
+
 #show intro screen
 def show_intro_screen():
     font_large = pygame.font.Font(None, 50)
@@ -132,6 +149,7 @@ def main():
 
     snake = Snake(snake_speed)
     food = Food()
+    special_food = SpecialFood()
 
 
     score = 0  # Initialize the score to zero
@@ -162,6 +180,11 @@ def main():
             snake.grow()
             food.respawn()
             score += 1
+        elif distance(head, special_food.get_position()) < 20 and special_food.is_active():
+            snake.grow()
+            snake.grow()  # Double growth
+            special_food.respawn()
+            score += 2
 
 
         #cek kalo snake nyetuh diri sendiri
@@ -193,6 +216,18 @@ def main():
         RED = (255, 0, 0)
         #draw food as a red circle
         pygame.draw.circle(window, RED, food.get_position(), 10)
+
+        #draw special food as a blue circle if active
+        BLUE = (0, 0, 255)
+        if special_food.is_active():
+            pygame.draw.circle(window, BLUE, special_food.get_position(), 10)
+            if distance(head, special_food.get_position()) < 20:
+                snake.grow()
+                snake.grow()  # Double growth
+                special_food.respawn()
+                score += 2
+        else:
+            special_food.respawn()
 
 
         #draw score

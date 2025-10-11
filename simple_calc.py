@@ -26,7 +26,7 @@ entry_num2.pack(pady=5)
 
 #create a frame for buttons
 button_frame = tk.Frame(app, bg="lightgreen")
-button_frame.pack(pady=5)
+button_frame.pack(pady=5)sssssds
 
 #create result label
 result_text = tk.StringVar()
