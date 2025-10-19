@@ -123,7 +123,7 @@ country_combobox.grid(row=11, column=1, padx=10, pady=10)
 
 #li'l info abt urself
 bio_text = tk.Text(root, width=30, height=5)
-bio_text.grid(row=13, column=1, padx=10, pady=10, columnspan=2)
+bio_text.grid(row=13, column=1, padx=10, pady=10, padx=10)
 
 #submit button
 submit_button = ttk.Button(root, text="Submit",cursor = "hand2",style = "TButton", command=submit)
